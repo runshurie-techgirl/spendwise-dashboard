@@ -1,44 +1,282 @@
-# SpendWise Dashboard Shell
+# SpendWise
 
-**Built by Moony** | Software Engineering capstone, foundation week
+SpendWise is a budget tracking project.
+It helps a user see how much money
+they planned to spend, how much they
+actually spent, and how much is left.
 
-SpendWise is a personal budgeting dashboard designed for everyday money habits in Kenya. This week's task was the dashboard shell: a clean, responsive layout built with CSS Grid and Flexbox, using realistic static content. There is no JavaScript yet. Amounts are shown in Kenyan shillings (KES) with an approximate US dollar (USD) value, because many people in Kenya budget in KES but think about prices, savings and online services in USD.
+The page was first built with HTML and
+CSS as a dashboard. This version adds
+the JavaScript foundation, so SpendWise
+can now collect information, calculate
+with it, and show results.
 
-## Files
+## What the project does
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Page structure: sidebar, header, and six category cards |
-| `style.css` | Theme variables, grid and flexbox layout, responsive rules, card animations, dark theme |
-| `README.md` | This document |
+When the page loads, SpendWise:
 
-## What each part does
+1. Asks the user for a monthly budget.
+2. Asks how much was spent on Food,
+   Transport, Rent and Utilities.
+3. Adds the four expenses together.
+4. Subtracts the total from the budget
+   to find the remaining balance.
+5. Works out the percentage of the
+   budget that has been used.
+6. Prints a labeled summary in the
+   browser console.
+7. Prints a warning or an encouraging
+   message based on the budget status.
 
-- **Sidebar:** brand logo and navigation menu (Dashboard, Transactions, Budgets, Savings goals, Reports, Settings), arranged with Flexbox. The active page is highlighted.
-- **Header:** page title and date range on the left, remaining monthly balance and user profile on the right, arranged with Flexbox.
-- **Category cards:** Food, Transport, Rent, Entertainment, Savings and Utilities. Each card shows an icon, category name, percentage badge, amount spent, budget total and a progress bar. Content inside each card is stacked with Flexbox. Cards are keyboard-focusable.
+## Project files
 
-## Why I built it this way
+- `index.html` : the page structure
+  and the dashboard layout. It links
+  to `style.css` and `script.js`.
+- `style.css` : colors, layout and
+  responsive design.
+- `script.js` : all the JavaScript
+  logic described in this README.
+- `README.md` : this documentation.
 
-- **CSS Grid for the page, Flexbox for the parts.** Grid decides where the sidebar, header and main area sit (`grid-template-areas`), and where the cards sit (`repeat(auto-fill, minmax(16rem, 1fr))`). Flexbox lines up the items inside the header, sidebar and each card. There is no absolute positioning.
-- **One theme in one place.** The colors are CSS variables on `:root` (brand, accent, surface, primary text, secondary text, plus a few supporting ones). Every color in the stylesheet uses them, so changing the look means editing one block. I chose a deep green for the brand color and gold for the accent, to suit a money app.
-- **Dark theme (stretch goal).** Because all colors are variables, dark mode only overrides the `:root` values inside `@media (prefers-color-scheme: dark)`. No other rule changes.
-- **Responsive.** Below 768px the layout becomes a single column: header first, then navigation, then the cards. I checked it with the Chrome DevTools Device Toolbar.
-- **Card micro-interactions.** On hover and keyboard focus, cards lift with `transform` and a deeper `box-shadow`. The transition lasts 200ms. Motion is turned off for users who prefer reduced motion.
-- **Accessibility.** Cards can be reached with the Tab key, focus is clearly visible, and the navigation and cards have descriptive labels.
+## How to run it
 
-## Currency note
+1. Open `index.html` in a browser.
+2. Answer the five prompt boxes
+   using numbers only.
+3. Press F12 and open the Console tab
+   to read the results.
 
-The USD values are static, calculated at a sample rate of 1 USD = KES 129.2 and rounded to the nearest dollar. The rate is stated on the page.
+Note: the dashboard cards on the page
+still show sample figures. The results
+calculated by JavaScript appear in
+the console, as the assignment asks.
 
-## What I learned
+## JavaScript concepts implemented
 
-Building the layout with Grid and Flexbox made it easier to change for small screens than I expected: the single-column version only needed a few lines in one media query. Putting every color into variables also made the dark theme quick to add.
+- Linking a JavaScript file to HTML
+- Variables with `const` and `let`
+- Data types: strings and numbers
+- User input with `prompt()`
+- Converting text to numbers
+- Arithmetic operators
+- Functions with parameters and return
+- Conditional logic with if / else
+- Console output with `console.log()`
 
-## What's next
+## Setting up JavaScript
 
-For the next stages of the capstone, I plan to use JavaScript to add real transactions, calculate totals per category, update the progress bars automatically, and add a KES/USD toggle.
+`script.js` is connected to the page
+with this line, placed just before
+the closing `</body>` tag:
 
-## How to view
+```html
+<script src="script.js"></script>
+```
 
-Open `index.html` in a browser. To test dark mode, switch your system to dark mode, or in DevTools use Rendering, then Emulate CSS media feature prefers-color-scheme.
+It sits at the bottom so the page
+loads first and the script runs after.
+A test message in the console showed
+that the file was linked correctly.
+
+## How variables are used
+
+Variables store the information that
+SpendWise works with. A variable is
+like a labeled tin: the name is the
+label and the value is what is inside.
+
+```js
+const appName = "SpendWise";
+const currency = "KES";
+
+let monthlyBudget = 0;
+let foodExpense = 0;
+let transportExpense = 0;
+let rentExpense = 0;
+let utilitiesExpense = 0;
+
+let totalExpenses = 0;
+let remainingBalance = 0;
+```
+
+- `const` is used for values that
+  never change: the app name and
+  the currency.
+- `let` is used for values that change:
+  the budget, the expenses and the
+  results.
+- `appName` and `currency` are strings
+  (text). The others are numbers.
+- Budget data is `monthlyBudget`.
+  Expense data is the four expense
+  variables and `totalExpenses`.
+- Everything starts at 0 because the
+  user has not typed anything yet.
+
+## How user input is collected
+
+The `prompt()` function opens a small
+box that asks a question and returns
+what the user types.
+
+```js
+monthlyBudget = Number(
+  prompt("Enter your monthly budget (KES):")
+);
+foodExpense = Number(
+  prompt("How much have you spent on Food (KES)?")
+);
+```
+
+The same pattern is used for
+Transport, Rent and Utilities.
+
+`prompt()` always returns text, even
+when the user types a number. Adding
+text joins it instead of adding it:
+`"5" + "5"` gives `"55"`. So each
+answer is wrapped in `Number()` to
+turn it into a real number. The answer
+is then stored in the variable made
+earlier, replacing the starting 0.
+
+## How calculations are performed
+
+Three calculations are made:
+
+1. Total expenses: the four expenses
+   added together with `+`.
+2. Remaining balance: the budget minus
+   the total, using `-`.
+3. Percentage spent: total divided by
+   budget, then multiplied by 100.
+
+Example with a budget of 40000 and
+expenses of 9000, 4000, 15000 and 3000:
+
+- Total expenses = 31000
+- Remaining balance = 9000
+- Percentage spent = 77.5%
+
+## How functions organize the code
+
+Instead of writing each calculation
+loose in the file, the logic is put
+into functions. A function is like a
+recipe card: written once, used by
+name whenever it is needed.
+
+```js
+function calculateTotalExpenses(
+  food, transport, rent, utilities
+) {
+  return food + transport + rent + utilities;
+}
+
+function calculateRemaining(budget, total) {
+  return budget - total;
+}
+
+function calculatePercentSpent(total, budget) {
+  return (total / budget) * 100;
+}
+```
+
+- The names in brackets are parameters,
+  the inputs the function expects.
+- `return` sends the answer back.
+- The functions are then called with
+  the real variables:
+
+```js
+totalExpenses = calculateTotalExpenses(
+  foodExpense, transportExpense,
+  rentExpense, utilitiesExpense
+);
+remainingBalance = calculateRemaining(
+  monthlyBudget, totalExpenses
+);
+let percentSpent = calculatePercentSpent(
+  totalExpenses, monthlyBudget
+);
+```
+
+Each function does one job, so the
+code is easier to read, test and fix.
+
+## Displaying the results
+
+`displayResults()` prints one labeled
+line for each result, so anyone reading
+the console understands every number.
+
+```js
+console.log("Total expenses: "
+  + currency + " " + totalExpenses);
+console.log("Budget used: "
+  + percentSpent.toFixed(1) + "%");
+```
+
+`.toFixed(1)` rounds the percentage to
+one decimal place, such as 77.5%.
+
+## The smart budget check
+
+`checkBudgetStatus()` uses if / else
+to react to the numbers. It runs only
+the first condition that is true:
+
+- Remaining balance below 0: prints a
+  WARNING that the user is over budget
+  and shows by how much.
+- 80% or more used: prints a CAREFUL
+  message as an early warning.
+- Otherwise: prints a GOOD JOB message.
+
+`Math.abs()` turns a negative balance
+into a positive number so the message
+reads "over budget by 11000" and not
+"over budget by -11000".
+
+## Testing
+
+| Budget | Expenses | Result |
+|--------|----------|--------|
+| 40000 | 9000, 4000, 15000, 3000 | GOOD JOB (77.5%) |
+| 40000 | 10000, 5000, 15000, 3000 | CAREFUL (82.5%) |
+| 20000 | 9000, 4000, 15000, 3000 | WARNING (over by 11000) |
+
+## Reflection
+
+This project turned SpendWise from a
+page that only looks good into one that
+can think with numbers.
+
+The biggest lesson was that JavaScript
+is case-sensitive and exact. I got
+"not defined" errors twice. One came
+from writing `monthlybudget` instead
+of `monthlyBudget`. The other came from
+`percentSpend` instead of `percentSpent`.
+One wrong letter makes JavaScript treat
+it as a different name.
+
+I also learned that `prompt()` gives
+back text, not numbers. Without
+`Number()`, the totals would have been
+joined together instead of added.
+
+Moving the calculations into functions
+made the code tidier. Each function has
+one clear job, and I can reuse it.
+
+Adding the if / else check was my
+favorite part. It made SpendWise feel
+smart, because it responds to the
+user's real situation.
+
+Next, I want to show the results on the
+dashboard itself, not only in the
+console, and add the Entertainment and
+Savings categories.
