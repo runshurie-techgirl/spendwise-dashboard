@@ -75,5 +75,3 @@ function displayResults() {
   console.log("Remaining balance: " + currency + " " + remainingBalance);
   console.log("Budget used: " + percentSpent.toFixed(1) + "%");
 }
-
-displayResults();
