@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>SpendWise Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar / Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">SW</span>
+        <span class="brand-name">SpendWise</span>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a class="nav-item is-active" href="#" aria-current="page"><span class="nav-icon" aria-hidden="true">▦</span>Dashboard</a></li>
+          <li><a class="nav-item" href="#"><span class="nav-icon" aria-hidden="true">⇄</span>Transactions</a></li>
+          <li><a class="nav-item" href="#"><span class="nav-icon" aria-hidden="true">◔</span>Budgets</a></li>
+          <li><a class="nav-item" href="#"><span class="nav-icon" aria-hidden="true">◎</span>Savings goals</a></li>
+          <li><a class="nav-item" href="#"><span class="nav-icon" aria-hidden="true">≡</span>Reports</a></li>
+          <li><a class="nav-item" href="#"><span class="nav-icon" aria-hidden="true">⚙</span>Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-title">
+        <h1>November overview</h1>
+        <p>1 – 30 November 2026</p>
+      </div>
+      <div class="header-actions">
+        <div class="balance">
+          <span class="balance-label">Remaining this month</span>
+          <span class="balance-value">KES 28,450</span>
+          <span class="balance-usd">≈ $220</span>
+        </div>
+        <div class="profile">
+          <span class="avatar" aria-hidden="true">G</span>
+          <span class="profile-name">Guest user</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content: category cards -->
+    <main class="main">
+      <h2 class="section-title">Spending by category</h2>
+      <p class="rate-note">Amounts in KES with approximate US dollar value. Sample rate: 1 USD = KES 129.2.</p>
+
+      <section class="card-grid" aria-label="Spending categories">
+
+        <article class="card" tabindex="0" aria-label="Food: KES 9,800 of KES 12,000 spent">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">🍲</span>
+            <h3 class="card-title">Food</h3>
+            <span class="card-badge">82%</span>
+          </div>
+          <p class="card-amount">KES 9,800 <span class="card-usd">≈ $76</span></p>
+          <p class="card-meta">of KES 12,000 budget (≈ $93)</p>
+          <div class="bar" style="--pct: 82%"><span></span></div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Transport: KES 4,200 of KES 6,000 spent">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">🚌</span>
+            <h3 class="card-title">Transport</h3>
+            <span class="card-badge">70%</span>
+          </div>
+          <p class="card-amount">KES 4,200 <span class="card-usd">≈ $33</span></p>
+          <p class="card-meta">of KES 6,000 budget (≈ $46)</p>
+          <div class="bar" style="--pct: 70%"><span></span></div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Rent: KES 15,000 of KES 15,000 spent">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">🏠</span>
+            <h3 class="card-title">Rent</h3>
+            <span class="card-badge">100%</span>
+          </div>
+          <p class="card-amount">KES 15,000 <span class="card-usd">≈ $116</span></p>
+          <p class="card-meta">of KES 15,000 budget (≈ $116)</p>
+          <div class="bar" style="--pct: 100%"><span></span></div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Entertainment: KES 2,350 of KES 4,000 spent">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">🎬</span>
+            <h3 class="card-title">Entertainment</h3>
+            <span class="card-badge">59%</span>
+          </div>
+          <p class="card-amount">KES 2,350 <span class="card-usd">≈ $18</span></p>
+          <p class="card-meta">of KES 4,000 budget (≈ $31)</p>
+          <div class="bar" style="--pct: 59%"><span></span></div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Savings: KES 8,000 of KES 10,000 saved">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">🐖</span>
+            <h3 class="card-title">Savings</h3>
+            <span class="card-badge">80%</span>
+          </div>
+          <p class="card-amount">KES 8,000 <span class="card-usd">≈ $62</span></p>
+          <p class="card-meta">of KES 10,000 goal (≈ $77)</p>
+          <div class="bar" style="--pct: 80%"><span></span></div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Utilities: KES 3,200 of KES 5,000 spent">
+          <div class="card-top">
+            <span class="card-icon" aria-hidden="true">💡</span>
+            <h3 class="card-title">Utilities</h3>
+            <span class="card-badge">64%</span>
+          </div>
+          <p class="card-amount">KES 3,200 <span class="card-usd">≈ $25</span></p>
+          <p class="card-meta">of KES 5,000 budget (≈ $39)</p>
+          <div class="bar" style="--pct: 64%"><span></span></div>
+        </article>
+
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# SpendWise Dashboard Shell
+
+**Built by Moony** | Software Engineering capstone, foundation week
+
+SpendWise is a personal budgeting dashboard designed for everyday money habits in Kenya. This week's task was the dashboard shell: a clean, responsive layout built with CSS Grid and Flexbox, using realistic static content. There is no JavaScript yet. Amounts are shown in Kenyan shillings (KES) with an approximate US dollar (USD) value, because many people in Kenya budget in KES but think about prices, savings and online services in USD.
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| `index.html` | Page structure: sidebar, header, and six category cards |
+| `style.css` | Theme variables, grid and flexbox layout, responsive rules, card animations, dark theme |
+| `README.md` | This document |
+
+## What each part does
+
+- **Sidebar:** brand logo and navigation menu (Dashboard, Transactions, Budgets, Savings goals, Reports, Settings), arranged with Flexbox. The active page is highlighted.
+- **Header:** page title and date range on the left, remaining monthly balance and user profile on the right, arranged with Flexbox.
+- **Category cards:** Food, Transport, Rent, Entertainment, Savings and Utilities. Each card shows an icon, category name, percentage badge, amount spent, budget total and a progress bar. Content inside each card is stacked with Flexbox. Cards are keyboard-focusable.
+
+## Why I built it this way
+
+- **CSS Grid for the page, Flexbox for the parts.** Grid decides where the sidebar, header and main area sit (`grid-template-areas`), and where the cards sit (`repeat(auto-fill, minmax(16rem, 1fr))`). Flexbox lines up the items inside the header, sidebar and each card. There is no absolute positioning.
+- **One theme in one place.** The colors are CSS variables on `:root` (brand, accent, surface, primary text, secondary text, plus a few supporting ones). Every color in the stylesheet uses them, so changing the look means editing one block. I chose a deep green for the brand color and gold for the accent, to suit a money app.
+- **Dark theme (stretch goal).** Because all colors are variables, dark mode only overrides the `:root` values inside `@media (prefers-color-scheme: dark)`. No other rule changes.
+- **Responsive.** Below 768px the layout becomes a single column: header first, then navigation, then the cards. I checked it with the Chrome DevTools Device Toolbar.
+- **Card micro-interactions.** On hover and keyboard focus, cards lift with `transform` and a deeper `box-shadow`. The transition lasts 200ms. Motion is turned off for users who prefer reduced motion.
+- **Accessibility.** Cards can be reached with the Tab key, focus is clearly visible, and the navigation and cards have descriptive labels.
+
+## Currency note
+
+The USD values are static, calculated at a sample rate of 1 USD = KES 129.2 and rounded to the nearest dollar. The rate is stated on the page.
+
+## What I learned
+
+Building the layout with Grid and Flexbox made it easier to change for small screens than I expected: the single-column version only needed a few lines in one media query. Putting every color into variables also made the dark theme quick to add.
+
+## What's next
+
+For the next stages of the capstone, I plan to use JavaScript to add real transactions, calculate totals per category, update the progress bars automatically, and add a KES/USD toggle.
+
+## How to view
+
+Open `index.html` in a browser. To test dark mode, switch your system to dark mode, or in DevTools use Rendering, then Emulate CSS media feature prefers-color-scheme.
