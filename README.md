@@ -51,7 +51,7 @@ Project files:
 
 ## Live Netlify Website URL
 
-https://spendwise-student-budget-tracker.netlify.appDashboard
+https://spendwise-student-budget-tracker.netlify.app
 
 
 ## Deployment Process Summary
