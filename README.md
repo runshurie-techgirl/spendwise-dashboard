@@ -1,4 +1,6 @@
-# SpendWise Dashboard
+## Code Documentation
+
+## Project Description
 
 SpendWise is a budgeting dashboard.
 You set a monthly budget, add your
@@ -6,6 +8,122 @@ expenses, and the page shows how you
 are doing. Amounts are in Kenyan
 Shillings (KES) with an approximate
 US dollar value (1 USD = KES 129.2).
+
+What the app does:
+
+- Stores every expense in an array.
+- Loops through the array to add up
+  totals for each category.
+- Uses conditionals to show Safe,
+  Careful or Overspent feedback.
+- Updates the balance, status, cards
+  and expense list on the page.
+- Responds to the budget form, the
+  expense form, Delete and Clear all.
+- Checks input and shows an error
+  message for bad values.
+
+Project files:
+
+- `index.html`: page structure.
+- `style.css`: layout and design,
+  with dark mode support.
+- `script.js`: all the logic.
+- `README.md`: this document.
+
+## Technologies Used
+
+- HTML5 for the page structure.
+- CSS3 with Grid, Flexbox and custom
+  properties.
+- JavaScript (plain, no libraries).
+- Git for version control.
+- GitHub to store the code.
+- Netlify to host the live site.
+- VS Code to write the code.
+
+## GitHub Repository Information
+
+- Repository name: `spendwise-dashboard`
+- Visibility: public
+- Link: https://github.com/runshurie-techgirl/spendwise-dashboard
+- Branch used for deployment: `main`
+
+## Live Netlify Website URL
+
+https://spendwise-student-budget-tracker.netlify.appDashboard
+
+
+## Deployment Process Summary
+
+1. Checked that all files were in the
+   main project folder and that the
+   links to `style.css` and
+   `script.js` were correct.
+2. Pushed the project to the public
+   GitHub repository
+   `spendwise-dashboard`.
+3. Signed in to Netlify with my
+   GitHub account.
+4. Imported the repository into
+   Netlify and deployed the `main`
+   branch.
+5. Left the build command empty,
+   because the site is plain HTML,
+   CSS and JavaScript.
+6. Set the publish directory to the
+   main folder (`.`).
+7. Chose the site name
+   `spendwise-student-budget-tracker`.
+8. Changed the site from Private to
+   public, so anyone can open it.
+9. Tested the live site: the files
+   load and every feature works.
+10. Changed the dashboard heading and
+    pushed it to GitHub. Netlify
+    redeployed by itself, and the new
+    heading appeared on the live site.
+
+## Challenges Encountered During Deployment
+
+- **Push rejected.** Git said the
+  remote had work I did not have. I
+  ran `git pull`, kept my version of
+  the conflicting file, and pushed
+  again.
+- **README had the wrong name.** The
+  file was called `README` instead of
+  `README.md`. I renamed it with
+  `git mv` and pushed.
+- **Project name already taken.**
+  Netlify names are shared by
+  everyone. I tried other names until
+  `spendwise-student-budget-tracker`
+  was accepted.
+- **Site was Private.** The new site
+  could only be seen by me. I clicked
+  Make public and tested the link in
+  an incognito window.
+
+## Lessons Learned
+
+- File names must be exact. A wrong
+  name like `README` can make a file
+  look missing.
+- Run `git pull` before `git push`,
+  especially if I edited a file on
+  GitHub.
+- Plain HTML, CSS and JavaScript need
+  no build step, so Netlify can
+  publish them as they are.
+- A live site must be public, and I
+  should test it in an incognito
+  window to see what visitors see.
+- Continuous deployment saves time:
+  one push to GitHub updates the live
+  site automatically.
+
+
 
 ## Project Files
 
