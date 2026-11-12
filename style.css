@@ -405,3 +405,167 @@ a {
     transform: none;
   }
 }
+/* ==========================================================
+   Interactive additions (forms, status, expense list)
+   ========================================================== */
+
+:root {
+  --danger: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --danger: #ff8a80;
+  }
+}
+
+.card-grid {
+  margin-bottom: 1.5rem;
+}
+
+.panel {
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex: 1 1 10rem;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.btn {
+  padding: 0.6rem 1.1rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--brand);
+  color: var(--brand-contrast);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+input:focus-visible,
+select:focus-visible,
+.btn:focus-visible,
+.delete-button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.error {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.status {
+  margin-top: 0.75rem;
+  font-weight: 700;
+}
+
+.status.is-good { color: var(--brand); }
+.status.is-careful { color: var(--accent); }
+.status.is-over { color: var(--danger); }
+.status.is-none { color: var(--text-secondary); }
+
+.card.is-careful .bar span { background: var(--accent); }
+.card.is-over .bar span { background: var(--danger); }
+.card.is-over .card-badge { color: var(--danger); }
+
+.expense-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.expense-list li:last-child {
+  border-bottom: 0;
+}
+
+.expense-list .empty {
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.item-name {
+  display: block;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.item-meta {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.delete-button {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--danger);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}

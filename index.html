@@ -38,8 +38,8 @@
       <div class="header-actions">
         <div class="balance">
           <span class="balance-label">Remaining this month</span>
-          <span class="balance-value">KES 28,450</span>
-          <span class="balance-usd">≈ $220</span>
+          <span class="balance-value" id="balance-value">Set a budget</span>
+          <span class="balance-usd" id="balance-usd"></span>
         </div>
         <div class="profile">
           <span class="avatar" aria-hidden="true">G</span>
@@ -48,88 +48,58 @@
       </div>
     </header>
 
-    <!-- Main content: category cards -->
+    <!-- Main content -->
     <main class="main">
+      <p id="error-message" class="error" role="alert" hidden></p>
+
+      <section class="panel" aria-labelledby="budget-title">
+        <h2 id="budget-title" class="section-title">Monthly budget</h2>
+        <form id="budget-form" class="form-row" novalidate>
+          <div class="field">
+            <label for="budget-input">Budget (KES)</label>
+            <input type="number" id="budget-input" min="1" step="0.01" placeholder="e.g. 50000">
+          </div>
+          <button type="submit" class="btn">Set budget</button>
+        </form>
+        <p id="status-message" class="status is-none">Set your monthly budget to get advice.</p>
+        <p id="summary-line" class="rate-note"></p>
+      </section>
+
       <h2 class="section-title">Spending by category</h2>
       <p class="rate-note">Amounts in KES with approximate US dollar value. Sample rate: 1 USD = KES 129.2.</p>
 
-      <section class="card-grid" aria-label="Spending categories">
+      <section id="card-grid" class="card-grid" aria-label="Spending categories"></section>
 
-        <article class="card" tabindex="0" aria-label="Food: KES 9,800 of KES 12,000 spent">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">🍲</span>
-            <h3 class="card-title">Food</h3>
-            <span class="card-badge">82%</span>
+      <section class="panel" aria-labelledby="add-title">
+        <h2 id="add-title" class="section-title">Add expense</h2>
+        <form id="expense-form" class="form-row" novalidate>
+          <div class="field">
+            <label for="name-input">Expense name</label>
+            <input type="text" id="name-input" maxlength="40" placeholder="e.g. Matatu fare">
           </div>
-          <p class="card-amount">KES 9,800 <span class="card-usd">≈ $76</span></p>
-          <p class="card-meta">of KES 12,000 budget (≈ $93)</p>
-          <div class="bar" style="--pct: 82%"><span></span></div>
-        </article>
-
-        <article class="card" tabindex="0" aria-label="Transport: KES 4,200 of KES 6,000 spent">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">🚌</span>
-            <h3 class="card-title">Transport</h3>
-            <span class="card-badge">70%</span>
+          <div class="field">
+            <label for="amount-input">Amount (KES)</label>
+            <input type="number" id="amount-input" min="0.01" step="0.01" placeholder="e.g. 100">
           </div>
-          <p class="card-amount">KES 4,200 <span class="card-usd">≈ $33</span></p>
-          <p class="card-meta">of KES 6,000 budget (≈ $46)</p>
-          <div class="bar" style="--pct: 70%"><span></span></div>
-        </article>
-
-        <article class="card" tabindex="0" aria-label="Rent: KES 15,000 of KES 15,000 spent">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">🏠</span>
-            <h3 class="card-title">Rent</h3>
-            <span class="card-badge">100%</span>
+          <div class="field">
+            <label for="category-input">Category</label>
+            <select id="category-input"></select>
           </div>
-          <p class="card-amount">KES 15,000 <span class="card-usd">≈ $116</span></p>
-          <p class="card-meta">of KES 15,000 budget (≈ $116)</p>
-          <div class="bar" style="--pct: 100%"><span></span></div>
-        </article>
+          <button type="submit" class="btn">Add expense</button>
+        </form>
+      </section>
 
-        <article class="card" tabindex="0" aria-label="Entertainment: KES 2,350 of KES 4,000 spent">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">🎬</span>
-            <h3 class="card-title">Entertainment</h3>
-            <span class="card-badge">59%</span>
-          </div>
-          <p class="card-amount">KES 2,350 <span class="card-usd">≈ $18</span></p>
-          <p class="card-meta">of KES 4,000 budget (≈ $31)</p>
-          <div class="bar" style="--pct: 59%"><span></span></div>
-        </article>
-
-        <article class="card" tabindex="0" aria-label="Savings: KES 8,000 of KES 10,000 saved">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">🐖</span>
-            <h3 class="card-title">Savings</h3>
-            <span class="card-badge">80%</span>
-          </div>
-          <p class="card-amount">KES 8,000 <span class="card-usd">≈ $62</span></p>
-          <p class="card-meta">of KES 10,000 goal (≈ $77)</p>
-          <div class="bar" style="--pct: 80%"><span></span></div>
-        </article>
-
-        <article class="card" tabindex="0" aria-label="Utilities: KES 3,200 of KES 5,000 spent">
-          <div class="card-top">
-            <span class="card-icon" aria-hidden="true">💡</span>
-            <h3 class="card-title">Utilities</h3>
-            <span class="card-badge">64%</span>
-          </div>
-          <p class="card-amount">KES 3,200 <span class="card-usd">≈ $25</span></p>
-          <p class="card-meta">of KES 5,000 budget (≈ $39)</p>
-          <div class="bar" style="--pct: 64%"><span></span></div>
-        </article>
-
+      <section class="panel" aria-labelledby="list-title">
+        <div class="panel-head">
+          <h2 id="list-title" class="section-title">Your expenses</h2>
+          <button type="button" id="clear-button" class="btn btn-secondary">Clear all</button>
+        </div>
+        <ul id="expense-list" class="expense-list"></ul>
       </section>
     </main>
-
-  </div>
-</body>
-</html> 
 
   </div>
 
   <script src="script.js"></script>
 </body>
-
+</html>
